@@ -1,0 +1,364 @@
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure body and html take full width and height */
+html, body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+header {
+    background-color: #003d79;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    width: 100%; /* Ensure header spans the full width */
+}
+
+/* Logo Container */
+.logo-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ega-logo, .emblem {
+    height: 40px;
+    max-width: 100px;
+}
+
+/* Chat Container */
+.chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: #ffffff;
+    border-left: 2px solid #003d79;
+    border-right: 2px solid #003d79;
+    padding: 10px;
+    width: 100%; /* Set chat container to full width */
+    height: 100%; /* Set to take full remaining height */
+}
+
+/* Chat Box */
+.chat-box {
+    overflow-y: auto;
+    padding: 10px;
+    flex: 1;
+    background-color: #e0f7fa; /* Light blue background for chat */
+}
+
+/* Chat Bubbles */
+.message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 70%;
+    word-break: break-word;
+}
+
+.message.user {
+    background-color: #00796b; /* Green bubble for user */
+    color: white;
+    margin-left: auto;
+}
+
+.message.ai {
+    background-color: #0288d1; /* Blue bubble for AI */
+    color: white;
+}
+
+/* Chat Form */
+.chat-form {
+    display: flex;
+    padding: 10px;
+    background-color: #ffffff;
+    border-top: 2px solid #003d79;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+    width: 100%;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #003d79;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #005bb5;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+
+    .chat-box {
+        padding: 5px;
+    }
+
+    input[type="text"] {
+        padding: 8px;
+    }
+
+    button {
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-container img {
+        height: 30px;
+    }
+
+    .chat-box {
+        font-size: 14px;
+    }
+
+    input[type="text"] {
+        padding: 6px;
+    }
+
+    button {
+        padding: 6px 10px;
+    }
+}
+
+
+
+
+
+
+
+.search-section {
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-section  h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.search-section  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.search-section  label {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.search-section  input[type="text"], select {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+.search-section  input[type="text"]:focus, select:focus {
+    border-color: #005bb5;
+    outline: none;
+    background-color: #fff;
+}
+
+.search-section  button {
+    padding: 12px 20px;
+    background-color: #003d79;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-section  button:hover {
+    background-color: #005bb5;
+}
+
+.search-section  .results {
+    margin-top: 20px;
+    padding: 15px;
+    font-size: 18px;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    min-height: 50px;
+}
+
+
+
+
+
+.audio-section {
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.audio-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.audio-section label {
+    font-weight: bold;
+}
+.audio-section textarea {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 400px;
+}
+.audio-section button {
+    padding: 0.5rem;
+    background: #003366;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 150px;
+}
+.audio-section button:hover {
+    background: #002244;
+}
+#waveform {
+    width: 100%;
+    max-width: 600px;
+    margin: 1rem auto;
+    height: 150px;
+}
+#audio {
+    width: 100%;
+    max-width: 600px;
+}
+.audio-section .loading-spinner {
+    display: none;
+    border: 8px solid #f3f3f3; /* Thinner border */
+    border-radius: 50%;
+    border-top: 8px solid #003366; /* Match border thickness with border */
+    width: 60px; /* Smaller width */
+    height: 60px; /* Smaller height */
+    -webkit-animation: spin 1s linear infinite; /* Faster spin for smaller spinner */
+    animation: spin 1s linear infinite;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.rag {
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background for the section */
+    border-radius: 8px; /* Rounded corners for a softer look */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 800px; /* Limit the width for better readability */
+    margin: 0 auto; /* Center the section */
+}
+
+.rag h1 {
+    font-size: 2rem; /* Larger font size for the main heading */
+    color: #003d79; /* Consistent color with the rest of the design */
+    margin-bottom: 20px;
+}
+
+.rag h2 {
+    font-size: 1.5rem; /* Slightly smaller font size for subheadings */
+    color: #003d79;
+    margin-bottom: 15px;
+}
+
+.rag form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between form elements */
+    margin-bottom: 30px;
+}
+
+.rag label {
+    font-size: 1rem;
+    color: #333; /* Darker text color for better readability */
+}
+
+.rag input[type="text"], .rag input[type="file"], .rag select {
+    padding: 10px;
+    border: 1px solid #ddd; /* Light border for input fields */
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.rag button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #003d79; /* Button color */
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.rag button:hover {
+    background-color: #005bb5; /* Darker shade on hover */
+}
+
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic Search</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://www.ega.go.tz/site/images/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://www.ega.go.tz/site/images/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://www.ega.go.tz/site/images/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://www.ega.go.tz/site/images/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://www.ega.go.tz/site/images/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://www.ega.go.tz/site/images/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://www.ega.go.tz/site/images/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://www.ega.go.tz/site/images/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.ega.go.tz/site/images/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://www.ega.go.tz/site/images/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.ega.go.tz/site/images/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="https://www.ega.go.tz/site/images/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://www.ega.go.tz/site/images/icon/favicon-16x16.png">
+    <script src="/static/search.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="https://www.ega.go.tz/site/images/logo.png" alt="EGA Logo" class="ega-logo">
+            <img src="https://www.ega.go.tz/site/images/emblem.png" alt="Tanzania Emblem" class="emblem">
+        </div>
+    </header>
+
+
+
+    <main>
+        <section class="search-section ">
+            <h2>e-GA Semantic Search</h2>
+            <form id="search-form">
+                <label for="query">Search Query:</label>
+                <input type="text" id="query" name="query" required placeholder="Enter your search query">
+
+                <label for="table">Select Table:</label>
+                <select id="table" name="table" required>
+                    <!-- Options will be dynamically populated -->
+                </select>
+
+                <button type="submit">Search</button>
+            </form>
+
+            <div id="results" class="results">
+                <!-- Search results will be displayed here -->
+            </div>
+        </section>
+    </main>
+
+    <footer style="
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #003d79;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    border-top: 1px solid #ddd;
+">
+    <p style="margin: 0;">Powered by eGA | © 2024</p>
+</footer>
+
+</body>
+</html>

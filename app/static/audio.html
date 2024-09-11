@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://www.ega.go.tz/site/images/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://www.ega.go.tz/site/images/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://www.ega.go.tz/site/images/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://www.ega.go.tz/site/images/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://www.ega.go.tz/site/images/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://www.ega.go.tz/site/images/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://www.ega.go.tz/site/images/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://www.ega.go.tz/site/images/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.ega.go.tz/site/images/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://www.ega.go.tz/site/images/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.ega.go.tz/site/images/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="https://www.ega.go.tz/site/images/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://www.ega.go.tz/site/images/icon/favicon-16x16.png">
+    <script src="https://unpkg.com/wavesurfer.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="https://www.ega.go.tz/site/images/logo.png" alt="EGA Logo" class="ega-logo">
+            <img src="https://www.ega.go.tz/site/images/emblem.png" alt="Tanzania Emblem" class="emblem">
+        </div>
+    </header>
+    <main>
+        <section class="audio-section">
+            <h1 style="text-align: center; margin-bottom : 10px;">e-GA Text to Speech</h1>
+            <form id="tts-form">
+                <textarea id="text" name="text" rows="4" cols="50" placeholder="Enter text here..." required></textarea><br>
+                <button type="submit">Generate Speech</button>
+                <br>
+                <h2>Audio Player</h2>
+                <div id="waveform"></div>
+                <audio id="audio" controls></audio>
+                <br>
+            <div id="loading" class="loading-spinner"></div>
+            </form>
+        </section>
+       
+           
+    </main>
+
+    <script>
+        let wavesurfer;
+    
+        document.getElementById('tts-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            
+            // Show the loading spinner
+            document.getElementById('loading').style.display = 'block';
+            
+            try {
+                const response = await fetch('/generate/', {
+                    method: 'POST',
+                    body: formData
+                });
+    
+                if (response.ok) {
+                    const audioBlob = await response.blob();
+                    const audioUrl = URL.createObjectURL(audioBlob);
+    
+                    // Clear the previous waveform if it exists
+                    if (wavesurfer) {
+                        wavesurfer.destroy(); // Dispose of the old Wavesurfer instance
+                    }
+                    document.getElementById('waveform').innerHTML = ''; // Clear the container
+    
+                    // Set up Wavesurfer.js
+                    wavesurfer = WaveSurfer.create({
+                        container: '#waveform',
+                        waveColor: 'violet',
+                        progressColor: 'purple',
+                        height: 150
+                    });
+    
+                    wavesurfer.load(audioUrl);
+    
+                    // Update audio element
+                    document.getElementById('audio').src = audioUrl;
+                } else {
+                    alert('Failed to generate speech');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while generating speech');
+            } finally {
+                // Hide the loading spinner
+                document.getElementById('loading').style.display = 'none';
+            }
+        });
+    </script>
+    <footer style="
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #003d79;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    border-top: 1px solid #ddd;
+">
+    <p style="margin: 0;">Powered by eGA | © 2024</p>
+</footer>
+
+</body>
+</html>

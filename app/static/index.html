@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Services Chat</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/options.js" defer></script>
+    <script src="/static/script.js" defer></script>
+    <link rel="apple-touch-icon" sizes="57x57" href="https://www.ega.go.tz/site/images/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://www.ega.go.tz/site/images/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://www.ega.go.tz/site/images/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://www.ega.go.tz/site/images/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://www.ega.go.tz/site/images/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://www.ega.go.tz/site/images/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://www.ega.go.tz/site/images/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://www.ega.go.tz/site/images/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.ega.go.tz/site/images/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://www.ega.go.tz/site/images/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.ega.go.tz/site/images/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="https://www.ega.go.tz/site/images/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://www.ega.go.tz/site/images/icon/favicon-16x16.png">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="https://www.ega.go.tz/site/images/logo.png" alt="EGA Logo" class="ega-logo">
+            <img src="https://www.ega.go.tz/site/images/emblem.png" alt="Tanzania Emblem" class="emblem">
+        </div>
+    </header>
+    <div class="chat-container">
+        <form id="options-form" class="options-form">
+            <label for="use-rag">
+                <input type="checkbox" id="use-rag" name="use-rag">
+                Enable RAG
+            </label>
+            <select id="rag-table" name="rag-table">
+                <option value="">Select RAG Table</option>
+                <!-- Add options dynamically if needed -->
+            </select>
+            <label for="voice-toggle">
+                <input type="checkbox" id="voice-toggle" name="voice-toggle">
+                Enable Voice
+            </label>
+        </form>
+        <div class="chat-box" id="chat-box"></div>
+        <form id="chat-form" class="chat-form">
+            <input type="text" id="query" name="query" placeholder="Uliza swali lolote kuhusu huduma za kijamii..." required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</body>
+</html>

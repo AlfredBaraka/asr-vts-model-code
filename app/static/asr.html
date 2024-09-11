@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ASR</title>
+        <link rel="stylesheet" href="/static/styles.css">
+        <link rel="apple-touch-icon" sizes="57x57" href="https://www.ega.go.tz/site/images/icon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="https://www.ega.go.tz/site/images/icon/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="https://www.ega.go.tz/site/images/icon/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="https://www.ega.go.tz/site/images/icon/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="https://www.ega.go.tz/site/images/icon/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="https://www.ega.go.tz/site/images/icon/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="https://www.ega.go.tz/site/images/icon/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="https://www.ega.go.tz/site/images/icon/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.ega.go.tz/site/images/icon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="https://www.ega.go.tz/site/images/icon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.ega.go.tz/site/images/icon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="https://www.ega.go.tz/site/images/icon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.ega.go.tz/site/images/icon/favicon-16x16.png">
+        <script src="https://unpkg.com/wavesurfer.js"></script>
+    </head>
+    <style>
+.asr {
+    background-color: white;
+    padding: 40px; /* Increased padding for a more spacious feel */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Slightly softer shadow */
+    max-width: 800px; /* Increased width */
+    margin: 40px auto; /* Centered with larger margin */
+}
+
+/* Headings inside .asr */
+.asr h1, .asr h2 {
+    color: #0056b3;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Label and input styling */
+.asr label {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #003f7f;
+}
+
+.asr input[type="file"] {
+    padding: 12px;
+    margin-bottom: 25px;
+    width: 100%; /* Make input full width */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Button styling */
+.asr button {
+    padding: 12px 30px; /* Increased padding for larger button */
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px; /* Larger button text */
+}
+
+.asr button:hover {
+    background-color: #003f7f;
+}
+
+/* Transcription text styling */
+.asr #transcription-result {
+    margin-top: 30px; /* Increased margin */
+    text-align: left;  /* Align text to the left */
+}
+
+.asr #transcription-text {
+    font-size: 20px; /* Larger text */
+    font-weight: bold;
+    color: #333;
+    padding: 20px;
+    background-color: #f8f9fa; 
+    border-radius: 10px;
+    line-height: 1.6; 
+}
+
+/* Special style for words */
+.asr #transcription-text span.word {
+    color: #0056b3;
+    background-color: #e3f2fd; 
+    padding: 3px 6px;
+    margin: 3px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+
+    </style>
+    <body>
+        <header>
+            <div class="logo-container">
+                <img src="https://www.ega.go.tz/site/images/logo.png" alt="EGA Logo" class="ega-logo">
+                <img src="https://www.ega.go.tz/site/images/emblem.png" alt="Tanzania Emblem" class="emblem">
+            </div>
+        </header>
+   <div class="asr">
+    <h1 style="text-align: center; margin-bottom : 10px;">e-GA Automatic Speech Recognition</h1>
+    <form id="upload-form" action="/transcribe/" enctype="multipart/form-data" method="post">
+        <label for="file">Choose audio file (WAV only):</label>
+        <input type="file" id="file" name="file" accept="audio/wav" required>
+        <button type="submit">Transcribe</button>
+    </form>
+
+    <div id="transcription-result">
+        <h2>Transcription</h2>
+        <p id="transcription-text"></p>
+    </div>
+   </div>
+
+    <script>
+        const form = document.getElementById('upload-form');
+        const transcriptionText = document.getElementById('transcription-text');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+        
+            const formData = new FormData(form);
+            const response = await fetch('/transcribe/', {
+                method: 'POST',
+                body: formData
+            });
+            
+            const data = await response.json();
+            const transcription = data.transcription;
+        
+            
+            const words = transcription.split(' ').map(word => `<span class="word">${word}</span>`).join(' ');
+        
+            transcriptionText.innerHTML = words;  
+        });
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to eGA Swahili AI Suite</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://www.ega.go.tz/site/images/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://www.ega.go.tz/site/images/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://www.ega.go.tz/site/images/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://www.ega.go.tz/site/images/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://www.ega.go.tz/site/images/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://www.ega.go.tz/site/images/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://www.ega.go.tz/site/images/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://www.ega.go.tz/site/images/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.ega.go.tz/site/images/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://www.ega.go.tz/site/images/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.ega.go.tz/site/images/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="https://www.ega.go.tz/site/images/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://www.ega.go.tz/site/images/icon/favicon-16x16.png">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+    header img {
+        height: 50px;
+        width: auto;
+    }
+    
+    .header-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+    
+    h1 {
+        margin: 0;
+    }
+    
+    main {
+        padding: 20px;
+    }
+    
+    .package {
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        display: inline-block;
+        width: 90%;
+        max-width: 400px;
+    }
+    
+    .package-logo {
+        height: 40px;
+    }
+    
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-top: 10px;
+        background-color: #003d79;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+    
+    .button:hover {
+        background-color: #005bb5;
+    }
+    
+</style>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="https://www.ega.go.tz/site/images/logo.png" alt="eGA Logo" class="ega-logo">
+            <!-- <img src="https://www.ega.go.tz/site/images/emblem.png" alt="National Emblem" class="national-emblem"> -->
+        </div>
+
+    </header>
+    <h1>Welcome to e-GA Swahili AI Suite</h1>
+    <main>
+        <section class="package">
+            <h2>Chat System</h2>
+            <img src="https://www.ega.go.tz/site/images/logo.png" alt="eGA Logo" class="package-logo">
+            <p>Interact with our advanced chat system designed to assist with various inquiries.</p>
+            <a href="/chat" class="button">Explore Chat</a>
+        </section>
+        
+        <section class="package">
+            <h2>Text-to-Speech</h2>
+            <img src="https://www.ega.go.tz/site/images/logo.png" alt="eGA Logo" class="package-logo">
+            <p>Convert text into spoken words with our sophisticated text-to-speech technology.</p>
+            <a href="/tts" class="button">Explore Text-to-Speech</a>
+        </section>
+
+        <!-- <section class="package">
+            <h2>Speech-to-Text</h2>
+            <img src="https://www.ega.go.tz/site/images/logo.png" alt="eGA Logo" class="package-logo">
+            <p>Convert speech into text with our sophisticated speecch to text technology.</p>
+            <a href="/asr" class="button">Explore Speech-to-Text</a>
+        </section> -->
+
+
+        <section class="package">
+            <h2>Semantic Search</h2>
+            <img src="https://www.ega.go.tz/site/images/logo.png" alt="eGA Logo" class="package-logo">
+            <p>Perform advanced searches to find relevant information quickly and accurately.</p>
+            <a href="/search" class="button">Explore Semantic Search</a>
+        </section>
+
+        <section class="package">
+            <h2>RAG Management System</h2>
+            <img src="https://www.ega.go.tz/site/images/logo.png" alt="eGA Logo" class="package-logo">
+            <p>Manage and organize your RAG tables and upload PDFs with ease.</p>
+            <a href="/rag_management" class="button">Explore RAG Management</a>
+        </section>
+    </main>
+    <footer style="
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #003d79;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    border-top: 1px solid #ddd;
+">
+    <p style="margin: 0;">Powered by eGA | © 2024</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Management</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://www.ega.go.tz/site/images/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://www.ega.go.tz/site/images/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://www.ega.go.tz/site/images/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://www.ega.go.tz/site/images/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://www.ega.go.tz/site/images/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://www.ega.go.tz/site/images/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://www.ega.go.tz/site/images/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://www.ega.go.tz/site/images/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.ega.go.tz/site/images/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://www.ega.go.tz/site/images/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.ega.go.tz/site/images/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="https://www.ega.go.tz/site/images/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://www.ega.go.tz/site/images/icon/favicon-16x16.png">
+    <script src="/static/db_management.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="https://www.ega.go.tz/site/images/logo.png" alt="EGA Logo" class="ega-logo">
+            <img src="https://www.ega.go.tz/site/images/emblem.png" alt="Tanzania Emblem" class="emblem">
+        </div>
+    </header>
+    <main style="margin-top: 12px;">
+        <section class="rag">
+            <h1 style="text-align: center;">E-GA RAG Management System</h1>
+            <h2>Create a New Table</h2>
+            <form id="create-table-form">
+                <label for="table-name">Table Name:</label>
+                <input type="text" id="table-name" name="table_name" required>
+                <button type="submit">Create Table</button>
+            </form>
+            <h2>Upload PDF and Assign Vector</h2>
+            <form method="post" id="upload-pdf-form" enctype="multipart/form-data">
+                <label for="pdf-file">PDF File:</label>
+                <input type="file" id="pdf-file" name="file" accept=".pdf" required>
+                <label for="vector-table">Table to Assign Vector:</label>
+                <select id="vector-table" name="vector_table" required>
+                </select>
+                <button type="submit">Upload PDF</button>
+            </form>
+        </section>
+    </main>
+    <footer style="
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #003d79;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    border-top: 1px solid #ddd;
+">
+    <p style="margin: 0;">Powered by eGA | © 2024</p>
+</footer>
+
+</body>
+</html>
